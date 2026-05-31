@@ -90,7 +90,7 @@ const LoginComponent = () => {
     );
   };
 
-  // Role-based redirect fix
+  // Role-based redirect
   if (isLoggedIn) {
     const userInfo = getUserInfo();
 
@@ -127,12 +127,12 @@ const LoginComponent = () => {
 
         <div className="bg-slate-800/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 sm:p-10 shadow-2xl">
 
-            <button
+          <button
             onClick={() => window.location.href = "/"}
             className="mb-4 text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center gap-2"
-                      >
+          >
             ← Back to Home
-            </button>
+          </button>
 
           <h3 className="mb-6 text-center text-2xl font-bold tracking-tight text-slate-200">
             Welcome Back
@@ -184,21 +184,16 @@ const LoginComponent = () => {
 
           </form>
 
-          <div className="mt-6 relative">
-
+          <div className="mt-6 relative flex items-center justify-center">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-slate-700/50"></div>
             </div>
-
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-slate-800 text-slate-400">
-                OR
-              </span>
+            <div className="relative px-4 bg-slate-800/90 backdrop-blur-md rounded-md border border-slate-700/30 text-xs font-semibold text-slate-400 tracking-wider">
+              OR
             </div>
-
           </div>
 
-          {/* Explicitly added list-none to prevent stray bullet point artifact on production build */}
+          {/* Wrapper preventing stray artifacts */}
           <div className="mt-6 flex justify-center list-none">
             <GoogleLogin
               onSuccess={handleGoogleLoginSuccess}
@@ -207,16 +202,13 @@ const LoginComponent = () => {
           </div>
 
           <p className="mt-8 text-center text-sm text-slate-400">
-
             Don't have an account?{" "}
-
             <a
               href="/signup"
               className="font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-200"
             >
               Sign up for free
             </a>
-
           </p>
 
         </div>
